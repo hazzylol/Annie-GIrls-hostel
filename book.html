@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Book a room — Annie Girls Hostel</title>
+<meta name="description" content="Reserve a 1, 2, 3 or 4-seater room at Annie Girls Hostel in Islamabad." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Annie Girls Hostel home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M9 21 L16 9 L23 21 M11.5 17 H20.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Annie</span>
+          <span class="brand-sub">girls hostel · islamabad</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#rooms">Rooms</a>
+        <a href="index.html#amenities">Amenities</a>
+        <a href="index.html#location">Location</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i data-lucide="moon" class="theme-icon-moon"></i>
+          <i data-lucide="sun" class="theme-icon-sun"></i>
+        </button>
+        <a href="index.html" class="btn btn-ghost">← Home</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="index.html#rooms">Rooms</a>
+      <a href="index.html#amenities">Amenities</a>
+      <a href="index.html#location">Location</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html" class="btn btn-ghost btn-block">← Home</a>
+    </div>
+  </header>
+
+  <main id="main" data-screen-label="01 Booking">
+
+    <section class="container book-hero">
+      <span class="kicker">Reserve your spot</span>
+      <h1>Let's get you <em>moved in</em>.</h1>
+      <p>Three short steps. We'll confirm by phone within 24 hours and schedule your visit before you commit.</p>
+    </section>
+
+    <section class="container book-layout">
+
+      <!-- FORM -->
+      <form class="book-form" id="bookForm" novalidate>
+
+        <div class="steps-rail">
+          <div class="step-pill" data-step="1" data-active="true"><span class="num">1</span> Room</div>
+          <div class="step-pill" data-step="2"><span class="num">2</span> Your details</div>
+          <div class="step-pill" data-step="3"><span class="num">3</span> Confirm</div>
+        </div>
+
+        <!-- STEP 1: ROOM -->
+        <div class="form-step" data-step="1" data-active="true">
+          <div class="form-section">
+            <h3>Pick a room type</h3>
+            <p>You can change this later — this just helps us reserve the right space.</p>
+
+            <div class="room-options" id="roomOptions">
+              <label class="room-option" data-room="1" data-price="28000">
+                <input type="radio" name="room" value="1" />
+                <div class="room-option-top">
+                  <div class="room-option-name">1-seater <span>Single private</span></div>
+                  <div class="room-option-check"><i data-lucide="check"></i></div>
+                </div>
+                <div class="room-option-price">PKR 28,000 <span>/ month</span></div>
+                <p class="room-option-feat">Attached bath · AC available · Window</p>
+              </label>
+
+              <label class="room-option" data-room="2" data-price="18000">
+                <input type="radio" name="room" value="2" />
+                <div class="room-option-top">
+                  <div class="room-option-name">2-seater <span>Twin shared</span></div>
+                  <div class="room-option-check"><i data-lucide="check"></i></div>
+                </div>
+                <div class="room-option-price">PKR 18,000 <span>/ month per girl</span></div>
+                <p class="room-option-feat">Attached bath · 2 desks · Storage each</p>
+              </label>
+
+              <label class="room-option" data-room="3" data-price="14000">
+                <input type="radio" name="room" value="3" />
+                <div class="room-option-top">
+                  <div class="room-option-name">3-seater <span>Triple shared</span></div>
+                  <div class="room-option-check"><i data-lucide="check"></i></div>
+                </div>
+                <div class="room-option-price">PKR 14,000 <span>/ month per girl</span></div>
+                <p class="room-option-feat">Common bath · 3 desks · Spacious</p>
+              </label>
+
+              <label class="room-option" data-room="4" data-price="13000">
+                <input type="radio" name="room" value="4" />
+                <div class="room-option-top">
+                  <div class="room-option-name">4-seater <span>Shared community</span></div>
+                  <div class="room-option-check"><i data-lucide="check"></i></div>
+                </div>
+                <div class="room-option-price">PKR 13,000 <span>/ month per girl</span></div>
+                <p class="room-option-feat">Common bath · Locker each · Bunk option</p>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>When do you need it?</h3>
+            <div class="field-grid">
+              <div class="field">
+                <label for="moveIn">Move-in date</label>
+                <input type="date" id="moveIn" name="moveIn" required />
+              </div>
+              <div class="field">
+                <label for="duration">Duration</label>
+                <select id="duration" name="duration">
+                  <option value="3">3 months</option>
+                  <option value="6" selected>6 months</option>
+                  <option value="12">12 months</option>
+                  <option value="open">Open ended</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <span class="step-progress" style="font-size: 13px; color: var(--ink-3);">Step 1 of 3</span>
+            <button type="button" class="btn btn-primary" data-next="2">Continue <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 2: DETAILS -->
+        <div class="form-step" data-step="2">
+          <div class="form-section">
+            <h3>About you</h3>
+            <p>We use this only for your booking and to coordinate with your parents/guardian if needed.</p>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Ayesha" required />
+              </div>
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Khan" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone (with WhatsApp)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="cnic">CNIC / Passport (optional)</label>
+                <input type="text" id="cnic" name="cnic" placeholder="35202-1234567-1" />
+              </div>
+              <div class="field">
+                <label for="occupation">Occupation</label>
+                <select id="occupation" name="occupation">
+                  <option>Student</option>
+                  <option>Working professional</option>
+                  <option>Both</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <label for="institute">University / employer</label>
+                <input type="text" id="institute" name="institute" placeholder="NUST · Bahria University · Systems Limited…" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Guardian contact</h3>
+            <p>Required for residents under 21. We'll only contact in emergencies.</p>
+            <div class="field-grid">
+              <div class="field">
+                <label for="gName">Guardian name</label>
+                <input type="text" id="gName" name="gName" placeholder="Mr. / Mrs. Khan" />
+              </div>
+              <div class="field">
+                <label for="gPhone">Guardian phone</label>
+                <input type="tel" id="gPhone" name="gPhone" placeholder="+92 300 1234567" />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Anything else?</h3>
+            <div class="field">
+              <label for="notes">Notes for the warden (optional)</label>
+              <textarea id="notes" name="notes" placeholder="Dietary restrictions, room preferences, questions…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <button type="button" class="btn btn-ghost" data-prev="1"><i data-lucide="arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-primary" data-next="3">Review booking <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- STEP 3: CONFIRM -->
+        <div class="form-step" data-step="3">
+          <div class="form-section">
+            <h3>Almost done</h3>
+            <p>Double-check the details on the right. We'll call you within 24 hours to confirm and schedule a visit.</p>
+
+            <label class="checkbox-row">
+              <input type="checkbox" id="visitFirst" />
+              <span>I'd like to <strong>visit before booking</strong>. (We strongly encourage this — there's no obligation.)</span>
+            </label>
+
+            <label class="checkbox-row">
+              <input type="checkbox" id="agreeTerms" required />
+              <span>I've read the <a href="#" style="color:var(--rose); border-bottom: 1px solid currentColor;">house rules</a> and understand this is a <strong>request</strong>, not a final booking. No payment is due now.</span>
+            </label>
+
+            <label class="checkbox-row">
+              <input type="checkbox" id="updates" checked />
+              <span>Send me availability updates on WhatsApp.</span>
+            </label>
+          </div>
+
+          <div class="form-foot">
+            <button type="button" class="btn btn-ghost" data-prev="2"><i data-lucide="arrow-left"></i> Back</button>
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i data-lucide="check-check"></i> Submit booking request
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: CONFIRMATION -->
+        <div class="form-step" data-step="4">
+          <div class="confirmation">
+            <div class="confirmation-icon"><i data-lucide="check"></i></div>
+            <h2>You're on the list, <span id="confirmName">friend</span>.</h2>
+            <p>We've received your booking request for <strong id="confirmRoom">a room</strong>. Aunty Annie or our warden will call you within 24 hours on <strong id="confirmPhone">your number</strong>.</p>
+            <div class="confirmation-id">Reference: <strong id="confirmRef">AGH-0000</strong></div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+              <a href="index.html" class="btn btn-ghost">← Back home</a>
+              <a href="https://wa.me/923001234567" class="btn btn-primary"><i data-lucide="message-circle"></i> Message on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- SUMMARY -->
+      <aside class="book-summary" id="bookSummary">
+        <h3>Your booking</h3>
+        <div class="summary-photo" id="summaryPhoto"></div>
+        <div class="summary-room" id="summaryRoom">Pick a room to begin</div>
+
+        <ul class="summary-list">
+          <li><span>Move-in</span><strong id="sumMoveIn">—</strong></li>
+          <li><span>Duration</span><strong id="sumDuration">6 months</strong></li>
+          <li><span>Mess included</span><strong>Yes</strong></li>
+          <li><span>Wi-Fi included</span><strong>Yes</strong></li>
+          <li><span>Security deposit</span><strong>1 month (refundable)</strong></li>
+        </ul>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-total">
+          <span class="label">Monthly</span>
+          <div class="price"><span id="sumPriceCurrency">PKR </span><span id="sumPrice">—</span><span> / mo</span></div>
+        </div>
+
+        <div class="summary-trust">
+          <i data-lucide="shield-check"></i>
+          <p>No payment now. We'll call to confirm and schedule a visit before any deposit is due.</p>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M9 21 L16 9 L23 21 M11.5 17 H20.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <div>
+          <div class="brand-name">Annie Girls Hostel</div>
+          <div class="brand-sub">A safe home in Islamabad · Est. 2018</div>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div>
+          <h4>Visit</h4>
+          <p>Zeta 1 Mall, opposite GIGA Mall<br>Zaraj Society, Sector A<br>DHA Phase II, Islamabad</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><a href="tel:+923001234567">+92 300 123 4567</a><br><a href="mailto:hello@anniehostel.pk">hello@anniehostel.pk</a></p>
+        </div>
+        <div>
+          <h4>Hours</h4>
+          <p>Office · 9 am – 8 pm<br>Visits · 2 pm – 6 pm<br>Warden · 24 / 7</p>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-base">
+      <span>© 2026 Annie Girls Hostel. Made with care.</span>
+      <span>Verified all-girls residence</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="booking.js"></script>
+
+  <!-- Tweaks panel mount -->
+  <div id="tweaks-mount"></div>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="book-tweaks.jsx"></script>
+</body>
+</html>
